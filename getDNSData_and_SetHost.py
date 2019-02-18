@@ -19,8 +19,8 @@ def find_dns_ip_FromWeb(url):
         ip_es = browser.find_elements_by_xpath("/html/body/div[2]/div[3]/ul/li/div[2]/p")
         ttl_es = browser.find_elements_by_xpath("/html/body/div[2]/div[3]/ul/li/div[3]/p")
         for ip_e,ttl_e in zip(ip_es,ttl_es):
-            (ip,ttl) = (ip_e.text.split(" ")[0],int(ttl_e.text))
-            print("%s %s"%(ip,ttl))
+            print("%s %s"%(ip_e.text,ttl_e.text))
+            (ip,ttl) = (ip_e.text.split(" ")[0],int(ttl_e.text))            
             rets.append((ip,ttl))
         browser.quit()
         return rets
