@@ -31,9 +31,9 @@ def main():
     hostname = "github.com"
     url = "http://tool.chinaz.com/dns?type=1&host=%s&ip="% hostname
     ipdatas = find_dns_ip_FromWeb(url)
-    def by_ttl_desc(t):
+    def by_ttl_asc(t):
         return t[1]
-    ok_data = sorted(ipdatas, key=by_ttl_desc)
+    ok_data = sorted(ipdatas, key=by_ttl_asc)
     content = ''
     for x in ok_data:
         print(x)
@@ -62,15 +62,3 @@ def main():
 
 if __name__ == '__main__':    
     main()
-
-# L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]   #元组  按第一个排序
-# def by_name(t):
-#     return(t[0])
-# L2 = sorted(L, key=by_name)
-# print(L2)
-#
-# L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]   #元组  按第二个排序 从高到低：return -t[1] 从低到高： return t[1]
-# def by_score(t):
-#     return -t[1]
-# L2 = sorted(L, key=by_score)
-# print(L2)    # print(datetime.datetime.now().date())
